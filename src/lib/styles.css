@@ -20,3 +20,8 @@ input[type=checkbox],input[type=radio]{min-height:0}
 @media(max-width:360px){.wrap{padding-inline:16px}.eyebrow{letter-spacing:.12em;gap:8px}}
 
 .location-link{text-decoration:underline;text-decoration-color:currentColor;text-underline-offset:4px}.location-link:hover{text-decoration-thickness:2px}
+
+/* Shared Lucide SVGs inherit the surrounding text color in Astro and Svelte. */
+.ui-icon{display:inline-block;flex-shrink:0;vertical-align:middle;pointer-events:none}
+.button>.ui-icon,.arrow-link>.ui-icon{flex-shrink:0}
+.dialog-close{display:grid;place-items:center}

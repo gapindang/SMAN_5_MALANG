@@ -9,6 +9,10 @@ html:has(.home){scroll-behavior:smooth;scroll-padding-top:150px}.home{position:r
 
 .school-facts strong.long-stat{font-size:26px}@media(max-width:900px){.school-facts strong.long-stat{font-size:21px}}
 
+.title-spark .ui-icon,.intro-symbol .ui-icon,.leaf-mark .ui-icon,.home-empty>span .ui-icon,.invitation-mark .ui-icon{width:1em;height:1em}
+.scroll-track{align-items:center;padding-top:0}
+.moment-open{display:grid;place-items:center}
+
 .home-hero{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
 .home-hero>*,.intro-layout>*,.values-panel>*,.school-facts>div,.magazine-layout>*{min-width:0}
 .school-facts{grid-template-columns:repeat(4,minmax(0,1fr))}

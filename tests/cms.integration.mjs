@@ -1,4 +1,5 @@
 import {createServer as createHttpServer} from 'node:http';
+import {fileURLToPath} from 'node:url';
 import {test} from 'node:test';import assert from 'node:assert/strict';import {createServer} from 'vite';import {randomBytes} from 'node:crypto';import {signSession} from '../src/lib/security.mjs';
 test('local CMS: authenticated upload, draft, publish, stale edit, unpublish, delete and persistence',async()=>{
  const vite=await createServer({configFile:false,server:{middlewareMode:true,hmr:{server:createHttpServer()}},appType:'custom'});
@@ -20,7 +21,7 @@ test('local CMS: authenticated upload, draft, publish, stale edit, unpublish, de
  const uploaded=await uploader.POST(context('POST',form,{path:'/api/admin/upload'}));assert.equal(uploaded.status,200);media=await uploaded.json();draft.featuredImageUrl=media.url;
  const saved=await content.POST(context('POST',draft));assert.equal(saved.status,200);entry=await saved.json();assert.ok(!entry.content.includes('<script>'));assert.equal(await storage.findPublic('news',entry.slug),undefined);
  const published=await content.POST(context('POST',{...entry,status:'published'}));assert.equal(published.status,200);const stale=entry;entry=await published.json();assert.ok(await storage.findPublic('news',entry.slug));
- const {createLocalStore}=await import('../src/lib/local-store.mjs');assert.equal((await createLocalStore(new URL('../.data/',import.meta.url).pathname).read(`content/news/${entry.id}.json`)).value.title,entry.title);
+ const {createLocalStore}=await import('../src/lib/local-store.mjs');assert.equal((await createLocalStore(fileURLToPath(new URL('../.data/',import.meta.url))).read(`content/news/${entry.id}.json`)).value.title,entry.title);
  assert.equal((await content.POST(context('POST',{...stale,title:'Stale update'}))).status,409);
  assert.equal((await mediaApi.DELETE(context('DELETE',{url:media.url},{path:'/api/admin/media'}))).status,409);
  const unpublished=await content.POST(context('POST',{...entry,status:'draft'}));assert.equal(unpublished.status,200);entry=await unpublished.json();assert.equal(await storage.findPublic('news',entry.slug),undefined);

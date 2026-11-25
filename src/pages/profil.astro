@@ -1,4 +1,5 @@
 ---
+import Icon from '../components/Icon.astro';
 import Layout from '../layouts/Layout.astro';
 import {school} from '../lib/school';
 ---
@@ -10,7 +11,7 @@ import {school} from '../lib/school';
    <h1 id="profile-title">SMA Negeri 5<br/>Malang.</h1>
    <p class="profile-slogan">{school.tagline}</p>
    <p>Sejak {school.founded} · Kota Malang</p>
-   <a class="profile-link" href="#tentang">Mengenal Dhamysoga <span aria-hidden="true">↓</span></a>
+   <a class="profile-link" href="#tentang">Mengenal Dhamysoga <span aria-hidden="true"><Icon name="arrow-down"/></span></a>
   </div>
  </section>
  <div class="wrap">
@@ -21,7 +22,7 @@ import {school} from '../lib/school';
      <div><dt>Akreditasi</dt><dd>{school.accreditation}</dd></div>
      <div><dt>NPSN</dt><dd>{school.npsn}</dd></div>
      <div><dt>Kurikulum</dt><dd>{school.curriculum}</dd></div>
-     <div><dt>Alamat</dt><dd><a class="location-link" href={school.mapUrl} target="_blank" rel="noopener noreferrer">{school.address} <span aria-hidden="true">↗</span></a></dd></div>
+     <div><dt>Alamat</dt><dd><a class="location-link" href={school.mapUrl} target="_blank" rel="noopener noreferrer">{school.address} <span aria-hidden="true"><Icon name="arrow-up-right"/></span></a></dd></div>
     </dl>
    </div>
    <div class="profile-copy">{school.profile.map(paragraph=><p>{paragraph}</p>)}</div>
