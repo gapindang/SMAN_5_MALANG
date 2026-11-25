@@ -1,0 +1,5 @@
+---
+import Layout from '../../layouts/Layout.astro';import PdfReader from '../../components/PdfReader.svelte';import {findPublic} from '../../lib/storage';
+const item=await findPublic('magazines',Astro.params.slug!);if(!item)return Astro.redirect('/404');
+---
+<Layout title={`${item.title} · Edisi ${item.edition}`} description={item.description} image={item.coverUrl}><div class="wrap"><div class="page-heading"><a class="arrow-link" href="/majalah">← Semua edisi</a><div class="news-meta">EDISI {item.edition} <span>·</span> {item.year}</div><h1>{item.title}</h1><p class="muted">{item.description}</p></div><section class="reader-layout"><img src={item.coverUrl} alt={`Cover ${item.title}`} width="300" height="450"/><PdfReader url={item.pdfUrl} allowDownload={item.allowDownload} client:visible/></section></div></Layout><style>.reader-layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:40px;margin-bottom:80px}.reader-layout>img{width:100%;height:auto;aspect-ratio:2/3}@media(max-width:760px){.reader-layout{grid-template-columns:1fr}.reader-layout>img{max-width:240px}}</style>

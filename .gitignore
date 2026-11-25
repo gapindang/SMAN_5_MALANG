@@ -1,0 +1,37 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.astro/
+.vercel/
+coverage/
+*.tsbuildinfo
+
+# Local CMS content, uploads, and credentials
+.data/
+.local/
+
+# Environment files (only the blank template is committed)
+.env
+.env.*
+!.env.example
+
+# Logs and temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+/tmp/
+/temp/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Original import; the deployed copy lives in public/majalah/
+/MAJALAH  PANDAWA 5.pdf

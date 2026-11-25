@@ -1,0 +1,21 @@
+export const school = {
+ name:'SMA Negeri 5 Malang', short:'Dhamysoga', tagline:'Be Excellent in Morality and Achievement',
+ description:'SMA Negeri 5 Malang (Dhamysoga), berdiri sejak 13 September 1965. Unggul dalam moralitas dan prestasi melalui Kurikulum Merdeka.',
+ placeholder:false, address:'Jalan Tanimbar No. 24, Kelurahan Kasin, Kecamatan Klojen, Kota Malang',email:'',phone:'',hours:'Senin–Jumat, 07.00–15.00 WIB',
+ mapUrl:'https://maps.app.goo.gl/BVodG4KNe13bXveZ9',
+ founded:'13 September 1965', accreditation:'A', npsn:'20533653', curriculum:'Kurikulum Merdeka',
+ motto:'Dharme Kyastu Yogya',
+ profile:[
+  'SMA Negeri 5 Malang atau yang dikenal dengan Dhamysoga merupakan salah satu sekolah menengah atas negeri di Kota Malang yang berdiri pada 13 September 1965 dan berlokasi di Jalan Tanimbar No. 24, Kelurahan Kasin, Kecamatan Klojen, Kota Malang. Dengan akreditasi A dan NPSN 20533653, SMAN 5 Malang berkomitmen menyelenggarakan pendidikan berkualitas melalui penerapan Kurikulum Merdeka.',
+  'Berlandaskan moto Dharme Kyastu Yogya yang mengajarkan kesederhanaan dan kerendahan hati sebagai dasar untuk berdarma bakti, sekolah ini mengusung slogan Be Excellent in Morality and Achievement.',
+  'Dalam mewujudkan visi sebagai institusi pendidikan yang menghasilkan insan berakhlak mulia, cerdas, berbudaya lingkungan, dan berperan aktif di era global, SMAN 5 Malang menyediakan berbagai fasilitas, seperti perpustakaan, laboratorium, Green House, sarana olahraga, tempat ibadah, dan UKS.',
+  'Selain itu, beragam kegiatan ekstrakurikuler di bidang kepemimpinan, keagamaan, seni, olahraga, akademik, dan jurnalistik menjadi wadah bagi peserta didik untuk mengembangkan minat, bakat, serta kreativitas.',
+  'Melalui perpaduan pendidikan akademik, pembentukan karakter, dan pengembangan potensi diri, SMAN 5 Malang terus berupaya mencetak generasi yang unggul dalam moralitas, berprestasi, dan siap menghadapi tantangan global.',
+ ],
+ vision:'Terwujudnya insan berakhlak mulia, cerdas, berbudaya lingkungan, dan berperan aktif di era global.',
+ mission:['Membudayakan iklim sekolah yang religius.','Mengembangkan karakter Profil Pelajar Pancasila.','Menciptakan pembelajaran berkualitas.','Menjalin kerja sama internasional.'],
+ facilities:['Perpustakaan','Laboratorium','Green House','Sarana olahraga','Tempat ibadah','UKS'],
+ extracurriculars:['Kepemimpinan','Keagamaan','Seni','Olahraga','Akademik','Jurnalistik'],
+ stats:[['1965','Tahun berdiri'],['A','Akreditasi'],['20533653','NPSN'],['Merdeka','Kurikulum']],
+ hero:'/sman-5-malang.png',
+};

@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {school} from '../lib/school';
+---
+<Layout title={`Profil ${school.name}`}>
+ <section class="profile-hero" aria-labelledby="profile-title">
+  <img class="profile-background" src={school.hero} alt="Gedung dan papan nama SMA Negeri 5 Malang di Jalan Tanimbar No. 24" width="1024" height="678" fetchpriority="high"/>
+  <div class="wrap profile-hero-copy">
+   <div class="eyebrow">Profil sekolah · {school.short}</div>
+   <h1 id="profile-title">SMA Negeri 5<br/>Malang.</h1>
+   <p class="profile-slogan">{school.tagline}</p>
+   <p>Sejak {school.founded} · Kota Malang</p>
+   <a class="profile-link" href="#tentang">Mengenal Dhamysoga <span aria-hidden="true">↓</span></a>
+  </div>
+ </section>
+ <div class="wrap">
+  <section id="tentang" class="section profile-grid" aria-labelledby="about-title">
+   <div><div class="eyebrow">Mengenal Dhamysoga</div><h2 id="about-title">Berakhlak mulia.<br/><em>Siap mendunia.</em></h2>
+    <dl class="school-details">
+     <div><dt>Berdiri</dt><dd>{school.founded}</dd></div>
+     <div><dt>Akreditasi</dt><dd>{school.accreditation}</dd></div>
+     <div><dt>NPSN</dt><dd>{school.npsn}</dd></div>
+     <div><dt>Kurikulum</dt><dd>{school.curriculum}</dd></div>
+     <div><dt>Alamat</dt><dd><a class="location-link" href={school.mapUrl} target="_blank" rel="noopener noreferrer">{school.address} <span aria-hidden="true">↗</span></a></dd></div>
+    </dl>
+   </div>
+   <div class="profile-copy">{school.profile.map(paragraph=><p>{paragraph}</p>)}</div>
+  </section>
+  <section class="motto" aria-labelledby="motto-title"><div class="eyebrow">Landasan pengabdian</div><h2 id="motto-title">{school.motto}</h2><p>Kesederhanaan dan kerendahan hati sebagai dasar untuk berdarma bakti.</p><p class="motto-slogan">{school.tagline}</p></section>
+  <section id="visi" class="vision section" aria-labelledby="vision-title">
+   <div class="eyebrow">Arah langkah kami</div><h2 id="vision-title">Visi & Misi</h2>
+   <div class="vision-grid"><div><h3>Visi</h3><p class="vision-text">{school.vision}</p></div><div><h3>Misi</h3><ol>{school.mission.map(mission=><li>{mission}</li>)}</ol></div></div>
+  </section>
+  <section class="section" aria-labelledby="facilities-title"><div class="eyebrow">Ruang untuk mengembangkan potensi</div><h2 id="facilities-title">Fasilitas & Ekstrakurikuler</h2><div class="facilities-grid">
+   <article class="profile-card"><h3>Fasilitas sekolah</h3><p class="muted">Sarana pendukung pembelajaran, kesehatan, ibadah, dan kepedulian terhadap lingkungan.</p><ul>{school.facilities.map(facility=><li>{facility}</li>)}</ul></article>
+   <article class="profile-card"><h3>Kegiatan ekstrakurikuler</h3><p class="muted">Wadah bagi peserta didik untuk mengembangkan minat, bakat, serta kreativitas.</p><ul>{school.extracurriculars.map(activity=><li>{activity}</li>)}</ul></article>
+  </div></section>
+ </div>
+</Layout>
+<style>
+ .profile-hero{position:relative;isolation:isolate;min-height:580px;display:flex;align-items:end;margin-top:24px;color:#fffdf5;background:#263025}
+ .profile-background{position:absolute;inset:0;width:100%;height:100%;object-position:center 58%;z-index:-2}
+ .profile-hero:before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#152016ed,#1520169c 55%,#15201640)}
+ .profile-hero-copy{width:100%;padding-top:72px;padding-bottom:64px}.profile-hero h1{margin-bottom:20px}.profile-hero p{max-width:600px}.profile-slogan{font-size:clamp(17px,2vw,23px)}.profile-link{display:inline-flex;align-items:center;gap:28px;padding:12px 0;border-bottom:1px solid #fffdf580;font-size:12px;margin-top:12px}
+ .profile-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:70px;scroll-margin-top:120px}.profile-grid h2 em{color:#69785c}.profile-copy p{line-height:1.95}.school-details{margin:32px 0 0}.school-details>div{display:grid;grid-template-columns:90px minmax(0,1fr);gap:16px;padding:13px 0;border-bottom:1px solid #d7d3c6;font-size:12px;line-height:1.8}.school-details dt{color:#65675b}.school-details dd{margin:0}
+ .motto{background:#e4e8da;padding:40px;border-radius:20px}.motto h2{margin-bottom:20px}.motto p{max-width:600px}.motto-slogan{font-style:italic;color:#4c5c40;margin-bottom:0}
+ .vision{border-bottom:1px solid #cccdbf;scroll-margin-top:120px}.vision-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:70px}.vision-grid h3{font-size:20px;color:#69785c}.vision-text{font:clamp(24px,2.5vw,30px)/1.6 var(--font-display);margin-bottom:0}.vision ol{padding-left:22px;margin:0;line-height:1.9;list-style:decimal}.vision li{padding-left:8px;margin-bottom:14px}
+ .facilities-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}.profile-card{border-top:1px solid #a9ad97;padding:25px 0}.profile-card p{font-size:13px}.profile-card ul{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:24px 0 0}.profile-card li{border:1px solid #b2b9a3;border-radius:20px;padding:8px 14px;font-size:12px}
+ @media(max-width:900px){.profile-hero{min-height:510px;margin-top:18px}.profile-hero-copy{padding-top:48px;padding-bottom:40px}.profile-hero h1{font-size:clamp(46px,11vw,70px)}.profile-background{object-position:53% center}.profile-grid,.vision-grid,.facilities-grid{grid-template-columns:1fr;gap:28px}.motto{padding:28px 22px}.profile-copy p{font-size:13px}.profile-hero .eyebrow{font-size:9px}.school-details{margin-top:24px}}
+</style>

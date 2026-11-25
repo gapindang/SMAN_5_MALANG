@@ -1,0 +1,4 @@
+---
+import Layout from '../../layouts/Layout.astro';import Admin from '../../components/Admin.svelte';import {localMode} from '../../lib/local';
+---
+<Layout title="Dashboard Admin" noindex><div class="wrap">{localMode()&&<div class="notice">Mode lokal. Berita, draft, majalah, dan unggahan disimpan di komputer ini.</div>}<Admin localStorage={localMode()} client:load/></div></Layout>

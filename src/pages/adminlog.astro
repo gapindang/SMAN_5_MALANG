@@ -1,0 +1,4 @@
+---
+import Layout from '../layouts/Layout.astro';import Login from '../components/Login.svelte';import {authenticated} from '../lib/auth';if(authenticated(Astro))return Astro.redirect('/admin');
+---
+<Layout title="Login Admin" noindex><div class="login"><div class="eyebrow">Ruang redaksi</div><h1>Selamat<br/>datang kembali.</h1><p class="muted">Masuk untuk mengelola cerita dan publikasi sekolah.</p><Login client:load/></div></Layout><style>.login{max-width:460px;padding:60px 22px 90px;margin:auto}.login h1{font-size:52px}.login p{font-size:12px}</style>
